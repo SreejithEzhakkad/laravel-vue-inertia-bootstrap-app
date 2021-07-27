@@ -1,0 +1,9 @@
+<template>
+  <img
+      class="mb-4"
+      src="/images/bootstrap-logo.svg"
+      alt=""
+      width="72"
+      height="57"
+  />
+</template>

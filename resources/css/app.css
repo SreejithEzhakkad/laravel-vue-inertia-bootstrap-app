@@ -1,3 +1,6 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+/**Import CSS Here
+@import 'path/custom-css';
+
+/**
+Custom CSS Here
+

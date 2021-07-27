@@ -1,82 +1,152 @@
 <template>
-    <breeze-validation-errors class="mb-4" />
+    <div class="row justify-content-center">
+        <div class="col-xxl-4 col-lg-5">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body">
+                    <section class="form-signin">
+                        <form @submit.prevent="submit">
+                            <Logo />
+                            <Heading>Please Login</Heading>
+                            <div class="form-floating">
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="email"
+                                    placeholder="Email address"
+                                    v-model="form.email"
+                                    required
+                                    autofocus
+                                    autocomplete="username"
+                                />
+                                <label for="email">Email address</label>
+                            </div>
+                            <div class="form-floating">
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="password"
+                                    placeholder="Password"
+                                    v-model="form.password"
+                                    required
+                                    autocomplete="current-password"
+                                />
+                                <label for="password">Password</label>
+                            </div>
 
-    <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-        {{ status }}
+                            <div class="checkbox mb-3">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input
+                                            type="checkbox"
+                                            value="remember-me"
+                                            :checked="form.remember"
+                                        />
+                                        Remember me
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <inertia-link
+                                            :href="route('password.request')"
+                                            class="
+                                                float-end
+                                                text-decoration-none
+                                                link-primary
+                                            "
+                                            >Forgot Password?</inertia-link
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <SubmitButton :disabled="form.processing"
+                                >Sign in</SubmitButton
+                            >
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <form @submit.prevent="submit">
-        <div>
-            <breeze-label for="email" value="Email" />
-            <breeze-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />
-        </div>
-
-        <div class="mt-4">
-            <breeze-label for="password" value="Password" />
-            <breeze-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
-        </div>
-
-        <div class="block mt-4">
-            <label class="flex items-center">
-                <breeze-checkbox name="remember" v-model:checked="form.remember" />
-                <span class="ml-2 text-sm text-gray-600">Remember me</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <inertia-link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                Forgot your password?
-            </inertia-link>
-
-            <breeze-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Log in
-            </breeze-button>
-        </div>
-    </form>
 </template>
-
 <script>
-    import BreezeButton from '@/Components/Button'
-    import BreezeGuestLayout from "@/Layouts/Guest"
-    import BreezeInput from '@/Components/Input'
-    import BreezeCheckbox from '@/Components/Checkbox'
-    import BreezeLabel from '@/Components/Label'
-    import BreezeValidationErrors from '@/Components/ValidationErrors'
+import Main from "@/Layouts/Main.vue";
+import Logo from "@/Components/Auth/Logo.vue";
+import Heading from "@/Components/Auth/Heading.vue";
+import SubmitButton from "@/Components/Auth/SubmitButton.vue";
 
-    export default {
-        layout: BreezeGuestLayout,
+export default {
+    layout: Main,
+    components: {
+        Logo,
+        Heading,
+        SubmitButton,
+    },
+    props: {
+        auth: Object,
+        canResetPassword: Boolean,
+        errors: Object,
+        status: String,
+    },
+    data() {
+        return {
+            form: this.$inertia.form({
+                email: "",
+                password: "",
+                remember: false,
+            }),
+        };
+    },
 
-        components: {
-            BreezeButton,
-            BreezeInput,
-            BreezeCheckbox,
-            BreezeLabel,
-            BreezeValidationErrors
+    methods: {
+        submit() {
+            this.form.post(this.route("login"), {
+                onFinish: () => {
+                    this.form.reset("password");
+                    if (Object.entries(this.errors).length !== 0) {
+                        var toast = {
+                            bg: "bg-danger",
+                        };
+
+                        if (this.errors.hasOwnProperty("email")) {
+                            toast.message = this.errors.email;
+                        }
+
+                        if (this.errors.hasOwnProperty("password")) {
+                            toast.message = this.errors.password;
+                        }
+                    }
+                    if (toast) {
+                        this.$store.dispatch("showToast", toast);
+                    }
+                }
+            });
         },
-
-        props: {
-            auth: Object,
-            canResetPassword: Boolean,
-            errors: Object,
-            status: String,
-        },
-
-        data() {
-            return {
-                form: this.$inertia.form({
-                    email: '',
-                    password: '',
-                    remember: false
-                })
-            }
-        },
-
-        methods: {
-            submit() {
-                this.form.post(this.route('login'), {
-                    onFinish: () => this.form.reset('password'),
-                })
-            }
-        }
-    }
+    },
+};
 </script>
+<style scoped>
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+</style>
