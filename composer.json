@@ -1,8 +1,8 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "This is a simple web application developed using Laravel 8, Vue.js 3(also Vuex 4), Inertia.js, and Bootstrap 5. This application includes authentication and a simple CRUD",
+    "keywords": ["framework", "laravel", "vuejs", "bootstrap", "inertiajs"],
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
