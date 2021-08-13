@@ -35,7 +35,23 @@
                         justify-content-center
                         mb-md-0
                     "
-                ></ul>
+                >
+                    <li>
+                        <inertia-link
+                            :href="route('dashboard')"
+                            class="nav-link px-2 text-white"
+                            >Dashboard</inertia-link
+                        >
+                    </li>
+
+                    <li>
+                        <inertia-link
+                            :href="route('contacts.index')"
+                            class="nav-link px-2 text-white"
+                            >Contacts</inertia-link
+                        >
+                    </li>
+                </ul>
                 <div class="text-end" v-if="auth === null">
                     <inertia-link
                         :href="route('login')"
@@ -67,13 +83,20 @@
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                     >
-                        <img
-                            src="https://github.com/mdo.png"
-                            alt="mdo"
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
                             width="32"
                             height="32"
-                            class="rounded-circle"
-                        />
+                            fill="currentColor"
+                            class="bi bi-person-circle"
+                            viewBox="0 0 16 16"
+                        >
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path
+                                fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                            />
+                        </svg>
                     </a>
                     <ul
                         class="dropdown-menu text-small"

@@ -1,35 +1,43 @@
 <template>
-    <div class="container col-xxl-8 px-1 py-1">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="row align-items-md-stretch pb-5">
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>Manage Contacts</h2>
+                <p>View, Add, Edit, Delete your contacts here.</p>
+                <a :href="route('contacts.index')" class="btn btn-outline-dark"
+                    >Contacts</a
+                >
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>Upcoming Feature</h2>
+                <p>Change your name, email and password here.</p>
+                <button class="btn btn-outline-dark disabled" type="button">
+                    Coming Soon
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-md-stretch pb-5">
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>Upcoming Feature</h2>
+                <p>A new feature will come here.</p>
+                <button class="btn btn-outline-dark disabled" type="button">
+                    Coming Soon
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>Upcoming Feature</h2>
+                <p>A new feature will come here.</p>
+                <button class="btn btn-outline-dark disabled" type="button">
+                    Coming Soon
+                </button>
+            </div>
         </div>
     </div>
 </template>
