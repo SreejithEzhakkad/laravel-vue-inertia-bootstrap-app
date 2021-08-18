@@ -1,4 +1,5 @@
 {
+    "name": "Laravel-8-Vue-Inertia-App",
     "private": true,
     "scripts": {
         "dev": "npm run development",
@@ -29,5 +30,8 @@
         "vue": "^3.0.5",
         "vue-loader": "^16.1.2",
         "vuex": "^4.0.2"
-    }
+    },
+    "engines": {
+        "node": ">=14.17.x"
+      }
 }
