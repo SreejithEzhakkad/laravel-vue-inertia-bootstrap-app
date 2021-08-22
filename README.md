@@ -16,9 +16,9 @@ I have hosted this application in Heroku. Please find it here.
 
 https://laravel-vue-inertia.herokuapp.com
 
-<img  src="https://raw.githubusercontent.com/SreejithEzhakkad/laravel8-app/main/public/images/laravel8app.png"  width="100" style="max-width:100%;">
+<img  src="https://raw.githubusercontent.com/SreejithEzhakkad/laravel8-app/main/public/images/laravel8app.png">
 
-Credentials
+Credentials:
 Email: mail@sreejith.co
 Password: Pa$$w0rd!
 
