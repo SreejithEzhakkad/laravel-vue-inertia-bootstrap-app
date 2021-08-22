@@ -36,7 +36,7 @@
                         mb-md-0
                     "
                 >
-                    <li>
+                    <li v-if="auth != null">
                         <inertia-link
                             :href="route('dashboard')"
                             class="nav-link px-2 text-white"
@@ -44,7 +44,7 @@
                         >
                     </li>
 
-                    <li>
+                    <li v-if="auth != null">
                         <inertia-link
                             :href="route('contacts.index')"
                             class="nav-link px-2 text-white"
