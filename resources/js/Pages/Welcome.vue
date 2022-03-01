@@ -16,19 +16,19 @@
                 <p class="lead">
                     This is a simple web application developed using
                     <a
-                        href="https://laravel.com/docs/8.x"
+                        href="https://laravel.com/docs/9.x"
                         class="link-dark text-decoration-none"
                         target="_blank"
-                        >Laravel 8</a
+                        >Laravel 9</a
                     >,
                     <a
-                        href="https://v3.vuejs.org"
+                        href="https://vuejs.org/guide/introduction.html"
                         class="link-dark text-decoration-none"
                         target="_blank"
                         >Vue.js 3</a
                     >(also
                     <a
-                        href="https://next.vuex.vuejs.org"
+                        href="https://vuex.vuejs.org"
                         class="link-dark text-decoration-none"
                         target="_blank"
                         >Vuex 4</a
@@ -40,16 +40,16 @@
                         >Inertia.js</a
                     >, and
                     <a
-                        href="https://getbootstrap.com/docs/5.0/getting-started/introduction"
+                        href="https://getbootstrap.com/docs/5.1/getting-started/introduction/"
                         class="link-dark text-decoration-none"
                         target="_blank"
-                        >Bootstrap 5</a
+                        >Bootstrap v5.1</a
                     >. This application includes authentication and a simple
                     CRUD.
                 </p>
                 <div class="d-grid gap-2 d-md-flex justify-content-center">
                     <a
-                        href="https://github.com/SreejithEzhakkad/laravel8-app"
+                        href="https://github.com/SreejithEzhakkad/laravel-vue-inertia-bootstrap-app"
                         target="_blank"
                         class="btn btn-outline-dark px-4 btn-lg"
                         role="button"
