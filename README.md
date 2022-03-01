@@ -10,7 +10,7 @@
 
   
 
-This is a simple web application developed using Laravel 8, Vue.js 3(also Vuex 4), Inertia.js, and Bootstrap 5. This application includes authentication and a simple CRUD.
+This is a simple web application developed using Laravel 9, Vue.js 3(also Vuex 4), Inertia.js, and Bootstrap v5.1. This application includes authentication and a simple CRUD.
 
 I have hosted this application in Heroku. Please find it here.
 
@@ -22,29 +22,27 @@ Credentials:
 Email: mail@sreejith.co
 Password: Pa$$w0rd!
 
--  [Laravel](https://laravel.com/docs/8.x)
+-  [Laravel](https://laravel.com/docs/9.x)
 - [inertia.js](https://inertiajs.com)
-- [Vue.js](https://v3.vuejs.org)
-- [Vuex](https://next.vuex.vuejs.org)
+- [Vue.js](https://vuejs.org/guide/introduction.html)
+- [Vuex](https://vuex.vuejs.org)
 - [Bootstrap](https://getbootstrap.com/docs/5.1)
 
 ## Installation
 
 Clone the repository.
 
-`$ git clone git@github.com:SreejithEzhakkad/laravel8-app.git`
+`$ git clone git@github.com:SreejithEzhakkad/laravel-vue-inertia-bootstrap-app.git`
 
   Create a MySQL database. Copy `.env.example` to `.env` and change values.
 Do the following
 
 `$ composer install`
 
-`$ composer update`
-
 `$ npm install`
-
-`$ npm update`
 
 `$ npm run production`
 
-`$ php artisan migrate --force`
+`$ php artisan migrate`
+
+`$ php artisan serve`
