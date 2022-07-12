@@ -1,5 +1,5 @@
 {
-    "name": "Laravel-Vue-Inertia-Bootstrap-App",
+    "name": "Laravel Vue Inertia Bootstrap App",
     "private": true,
     "scripts": {
         "dev": "npm run development",
